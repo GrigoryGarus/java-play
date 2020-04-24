@@ -18,7 +18,9 @@ public class MainMenu extends AbstractMenu {
     @Override
     public void interactWithMenu() {
 //TODO: Обработка ввода и вызов метода контроллера
-        System.out.println("test1");
+        System.out.println("Укажите путь к файлу.");
+        Scanner scan = new Scanner(System.in);
+        String file = scan.nextLine();
     }
 
     @Override
