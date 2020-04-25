@@ -18,10 +18,25 @@ public class MainMenu extends AbstractMenu {
     @Override
     public void interactWithMenu() {
 //TODO: Обработка ввода и вызов метода контроллера
-        System.out.println("Укажите путь к файлу.");
+
         Scanner scan = new Scanner(System.in);
-        String file = scan.nextLine();
+        String choice = scan.nextLine();
+        String answer = null;
+        switch (choice) {
+            case "1":
+                answer = "Create client";
+                break;
+            case "2":
+                answer = "Sort of clients";
+                break;
+            case "3":
+                answer = "Search clients";
+                break;
+            default: answer = "Ошибка ввода. Повторите";
+        }
+        System.out.println(answer);
     }
+
 
     @Override
     public void searchByName() {
