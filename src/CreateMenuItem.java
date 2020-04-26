@@ -1,6 +1,6 @@
 //TODO: Данный класс должен отвечать за обработку ввходных данных в формате - 
 //Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
-//Иванов Иван Иванович; 18.06.1983; 34; 6.45; "Работал над проектами: ""АБС""; ""КВД"""
+//Иванов Иван Иванович; 18.06.1983; 34; 6,45; "Работал над проектами: ""АБС""; ""КВД"""
 //и создание объекта Contact
 
 import java.text.ParseException;
@@ -23,7 +23,9 @@ public class CreateMenuItem implements MenuItemExecutor {
         String fullName = scanArray[0].trim();
         String dob1 = scanArray[1].trim();
         String countOfProjects1 = scanArray[2].trim();
-        String rating1 = scanArray[3].trim();
+        String rating1 = scanArray[3].trim().replaceAll("\\,", ".");
+
+        System.out.println(rating1);
 
         try {
             Date dob = new SimpleDateFormat("dd.MM.yyyy").parse(dob1);
