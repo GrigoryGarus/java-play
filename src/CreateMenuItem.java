@@ -1,5 +1,6 @@
 //TODO: Данный класс должен отвечать за обработку ввходных данных в формате - 
 //Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
+//Иванов Иван Иванович; 18.06.1983; 34; 6.45; "Работал над проектами: ""АБС""; ""КВД"""
 //и создание объекта Contact
 
 import java.text.ParseException;
@@ -16,7 +17,8 @@ public class CreateMenuItem implements MenuItemExecutor {
         Scanner scanner = new Scanner(System.in);
         String scan  = scanner.nextLine();
         String[] scanArray = scan.split(";");
-        System.out.println(Arrays.toString(scanArray));
+        //System.out.println(Arrays.toString(scanArray));
+
 
         String fullName = scanArray[0].trim();
         String dob1 = scanArray[1].trim();
@@ -28,12 +30,14 @@ public class CreateMenuItem implements MenuItemExecutor {
             int countOfProjects = Integer.parseInt(countOfProjects1);
             float rating = Float.parseFloat(rating1);
             String[] comment = Arrays.copyOfRange(scanArray, 4, scanArray.length);
-            String comments = comment.toString();
+            String comments = Arrays.toString(comment);
 
+            Contact contact = new Contact(fullName, dob, countOfProjects, rating, comments);
+            System.out.println(contact.toString());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Contact contact = new Contact(fullName, );
+
 
     }
 }
