@@ -9,6 +9,16 @@ public class Contact {
     private Float rating;
     private String comments;
 
+
+
+    public Contact(String fullName, Date dob, Integer countOfProjects, Float rating, String comments) {
+        this.fullName = fullName;
+        this.dob = dob;
+        this.countOfProjects = countOfProjects;
+        this.rating = rating;
+        this.comments = comments;
+    }
+
     //TODO: тут вы должны создать конструктор который конвертирует строковые значения полученые в ходе разбора входных данных.
 //Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
 //Необходимо распарсить String в соотвествующие типы
