@@ -5,13 +5,14 @@
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
 public class CreateMenuItem implements MenuItemExecutor {
 
-
+    public static ArrayList<Contact> contacts =new ArrayList<Contact>();
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
@@ -23,9 +24,11 @@ public class CreateMenuItem implements MenuItemExecutor {
         String fullName = scanArray[0].trim();
         String dob1 = scanArray[1].trim();
         String countOfProjects1 = scanArray[2].trim();
-        String rating1 = scanArray[3].trim().replaceAll("\\,", ".");
+        String rating1 = scanArray[3].trim().replaceAll(",", ".");
 
         System.out.println(rating1);
+
+
 
         try {
             Date dob = new SimpleDateFormat("dd.MM.yyyy").parse(dob1);
@@ -36,9 +39,19 @@ public class CreateMenuItem implements MenuItemExecutor {
 
             Contact contact = new Contact(fullName, dob, countOfProjects, rating, comments);
             System.out.println(contact.toString());
+
+
+            Singleton singleton = new Singleton();
+          contacts.add(contact);
+
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        Menu mainMenu = new MainMenu();
+        //mainMenu.printMenu();
+        mainMenu.interactWithMenu();
 
 
     }

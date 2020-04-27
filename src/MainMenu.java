@@ -14,7 +14,7 @@ public class MainMenu extends AbstractMenu {
         this.items.add(new MenuItem(this.items, "Create", new CreateMenuItem())
         );
         this.items.add(new MenuItem(this.items, "Search", new CreateMenuItem()));
-        this.items.add(new MenuItem(this.items, "Delete", new CreateMenuItem()));
+        this.items.add(new MenuItem(this.items, "Delete", new DeleteMenuItem()));
     }
 
     @Override
