@@ -12,7 +12,12 @@ import java.util.Scanner;
 
 public class CreateMenuItem implements MenuItemExecutor {
 
-    public static ArrayList<Contact> contacts =new ArrayList<Contact>();
+    private static ArrayList<Contact> contacts =new ArrayList<Contact>();
+
+    public static ArrayList<Contact> getContacts() {
+        return contacts;
+    }
+
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);

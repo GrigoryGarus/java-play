@@ -3,7 +3,7 @@ public class SearchMenuItem implements MenuItemExecutor {
 
     @Override
     public void execute() {
-        for (Contact c: CreateMenuItem.contacts) {
+        for (Contact c: CreateMenuItem.getContacts()) {
             System.out.println(c.toString());
         }
 
