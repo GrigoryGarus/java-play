@@ -31,7 +31,6 @@ public class CreateMenuItem implements MenuItemExecutor {
         String countOfProjects1 = scanArray[2].trim();
         String rating1 = scanArray[3].trim().replaceAll(",", ".");
 
-        System.out.println(rating1);
 
 
 
