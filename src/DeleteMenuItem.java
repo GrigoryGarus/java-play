@@ -8,10 +8,20 @@ public class DeleteMenuItem implements MenuItemExecutor {
         System.out.println("Введите имя контакта для удаления.");
         Scanner scanner = new Scanner(System.in);
         String scan = scanner.nextLine();
-        for (Contact c : CreateMenuItem.contacts) {
-            if (scan.equals(c.getFullName())) {
-                CreateMenuItem.contacts.remove(c);
+//        for (Contact c : CreateMenuItem.contacts) {
+//            if (scan.equals(c.getFullName())) {
+//                CreateMenuItem.contacts.remove(c);
+//            }
+//        }
+        for (int i = 0; i <CreateMenuItem.contacts.size() ; i++) {
+            if (scan.equals(CreateMenuItem.contacts.get(i).getFullName())) {
+                CreateMenuItem.contacts.remove(CreateMenuItem.contacts.get(i));
             }
+
         }
+        System.out.println("Контакт удален.");
+        Menu mainMenu = new MainMenu();
+        mainMenu.printMenu();
+        mainMenu.interactWithMenu();
     }
 }
