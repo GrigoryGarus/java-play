@@ -13,7 +13,7 @@ public class DeleteMenuItem implements MenuItemExecutor {
 //                CreateMenuItem.contacts.remove(c);
 //            }
 //        }
-        for (int i = 0; i <CreateMenuItem.getContacts().size() ; i++) {
+        for (int i = 0; i < CreateMenuItem.getContacts().size(); i++) {
             if (scan.equals(CreateMenuItem.getContacts().get(i).getFullName())) {
                 CreateMenuItem.getContacts().remove(CreateMenuItem.getContacts().get(i));
             }

@@ -1,8 +1,9 @@
-//TODO: Данный класс должен отвечать за обработку ввходных данных в формате - 
+//TODO: Данный класс должен отвечать за обработку ввходных данных в формате -
 //Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
 //Иванов Иван Иванович; 18.06.1983; 34; 6,45; "Работал над проектами: ""АБС""; ""КВД"""
 //и создание объекта Contact
 
+import java.awt.Menu;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 public class CreateMenuItem implements MenuItemExecutor {
 
-    private static ArrayList<Contact> contacts =new ArrayList<Contact>();
+    private static final ArrayList<Contact> contacts = new ArrayList<Contact>();
 
     public static ArrayList<Contact> getContacts() {
         return contacts;
@@ -21,18 +22,13 @@ public class CreateMenuItem implements MenuItemExecutor {
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
-        String scan  = scanner.nextLine();
+        String scan = scanner.nextLine();
         String[] scanArray = scan.split(";");
-        //System.out.println(Arrays.toString(scanArray));
-
 
         String fullName = scanArray[0].trim();
         String dob1 = scanArray[1].trim();
         String countOfProjects1 = scanArray[2].trim();
         String rating1 = scanArray[3].trim().replaceAll(",", ".");
-
-
-
 
         try {
             Date dob = new SimpleDateFormat("dd.MM.yyyy").parse(dob1);
@@ -44,9 +40,8 @@ public class CreateMenuItem implements MenuItemExecutor {
             Contact contact = new Contact(fullName, dob, countOfProjects, rating, comments);
             System.out.println(contact.toString());
 
-
             Singleton singleton = new Singleton();
-          contacts.add(contact);
+            contacts.add(contact);
 
 
         } catch (ParseException e) {

@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class MenuItem {
-    private int number;
-    private String name;
-    private MenuItemExecutor executor;
+    private final int number;
+    private final String name;
+    private final MenuItemExecutor executor;
 
     public MenuItem(List items, String name, MenuItemExecutor executor) {
         this.number = items.size() + 1;

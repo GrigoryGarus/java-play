@@ -1,14 +1,11 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Contact {
-    private String fullName;
-    private Date dob;
-    private Integer countOfProjects;
-    private Float rating;
-    private String comments;
-
+    private final String fullName;
+    private final Date dob;
+    private final Integer countOfProjects;
+    private final Float rating;
+    private final String comments;
 
 
     public Contact(String fullName, Date dob, Integer countOfProjects, Float rating, String comments) {
