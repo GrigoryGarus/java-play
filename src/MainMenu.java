@@ -9,7 +9,7 @@ public class MainMenu extends AbstractMenu {
     }
 
     private void initMenuItems() {
-        this.items.add(new MenuItem(this.items, "Create", new CreateMenuItem())
+        this.items.add(new MenuItem(this.items, "Create", new CreateMenuItem(this))
         );
         this.items.add(new MenuItem(this.items, "Search", new SearchMenuItem()));
         this.items.add(new MenuItem(this.items, "Delete", new DeleteMenuItem()));

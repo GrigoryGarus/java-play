@@ -3,29 +3,51 @@
 //Иванов Иван Иванович; 18.06.1983; 34; 6,45; "Работал над проектами: ""АБС""; ""КВД"""
 //и создание объекта Contact
 
-import java.awt.Menu;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
 public class CreateMenuItem implements MenuItemExecutor {
 
-    private static final ArrayList<Contact> contacts = new ArrayList<Contact>();
+    private final Menu MENU;
 
-    public static ArrayList<Contact> getContacts() {
-        return contacts;
+    public CreateMenuItem(Menu menu) {
+        this.MENU = menu;
     }
 
     @Override
     public void execute() {
+        // читаем строку из консоли
         Scanner scanner = new Scanner(System.in);
-        String scan = scanner.nextLine();
-        String[] scanArray = scan.split(";");
+        String contactLineFromCLI = scanner.nextLine();
 
-        String fullName = scanArray[0].trim();
+        // парсим строку
+        Contact contact = null;
+        try {
+            contact = this.pareseContactLine(contactLineFromCLI);
+            ContactStorage.INSTANCE.getContacts().add(contact);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+        MENU.printMenu();
+        MENU.interactWithMenu();
+    }
+
+    private Contact pareseContactLine(String contactLine) throws IOException {
+        Contact contact = null;
+
+        String[] scanArray = contactLine.split(";");
+
+        if (scanArray.length < 4) {
+            throw new IOException("Invalid contact data");
+        }
+
+        int INDEX_FULLNAME = 0;
+        String fullName = scanArray[INDEX_FULLNAME].trim();
         String dob1 = scanArray[1].trim();
         String countOfProjects1 = scanArray[2].trim();
         String rating1 = scanArray[3].trim().replaceAll(",", ".");
@@ -37,21 +59,12 @@ public class CreateMenuItem implements MenuItemExecutor {
             String[] comment = Arrays.copyOfRange(scanArray, 4, scanArray.length);
             String comments = Arrays.toString(comment);
 
-            Contact contact = new Contact(fullName, dob, countOfProjects, rating, comments);
-            System.out.println(contact.toString());
-
-            Singleton singleton = new Singleton();
-            contacts.add(contact);
-
+            contact = new Contact(fullName, dob, countOfProjects, rating, comments);
 
         } catch (ParseException e) {
-            e.printStackTrace();
+            throw new IOException("Invalid contact data");
         }
 
-        Menu mainMenu = new MainMenu();
-        //mainMenu.printMenu();
-        mainMenu.interactWithMenu();
-
-
+        return contact;
     }
 }
