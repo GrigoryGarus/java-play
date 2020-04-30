@@ -1,19 +1,20 @@
-import java.awt.*;
+package io.github.phonebook;
+
 import java.util.Scanner;
 
 public class SearchMenuItem implements MenuItemExecutor {
 
     @Override
     public void execute() {
-        for (Contact c : CreateMenuItem.getContacts()) {
+        for (Contact c : ContactStorage.INSTANCE.getContacts()) {
             System.out.println(c.toString());
         }
         System.out.println("Введите комментарий контакта для поиска.");
         Scanner scanner = new Scanner(System.in);
         String scan = scanner.nextLine();
-        for (int i = 0; i < CreateMenuItem.getContacts().size(); i++) {
-            if (scan.contains(CreateMenuItem.getContacts().get(i).getComments())) {
-                System.out.println(CreateMenuItem.getContacts().get(i).toString());
+        for (int i = 0; i < ContactStorage.INSTANCE.getContacts().size(); i++) {
+            if (scan.contains(ContactStorage.INSTANCE.getContacts().get(i).getComments())) {
+                System.out.println(ContactStorage.INSTANCE.getContacts().get(i).toString());
             }
         }
 

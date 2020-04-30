@@ -1,3 +1,6 @@
+package io.github.phonebook;
+import io.github.phonebook.MenuItemExecutor;
+
 import java.util.List;
 
 public class MenuItem {

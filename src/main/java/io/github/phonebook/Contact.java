@@ -1,3 +1,5 @@
+package io.github.phonebook;
+
 import java.util.Date;
 
 public class Contact {
@@ -29,7 +31,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "io.github.phonebook.Contact{" +
                 "fullName='" + fullName + '\'' +
                 ", dob=" + dob +
                 ", countOfProjects=" + countOfProjects +

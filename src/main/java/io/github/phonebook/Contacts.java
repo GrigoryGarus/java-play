@@ -1,3 +1,5 @@
+package io.github.phonebook;
+
 import java.util.ArrayList;
 
 public class Contacts {

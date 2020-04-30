@@ -1,3 +1,5 @@
+package io.github.phonebook;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,11 +11,12 @@ public class MainMenu extends AbstractMenu {
     }
 
     private void initMenuItems() {
-        this.items.add(new MenuItem(this.items, "Create", new CreateMenuItem())
+        this.items.add(new MenuItem(this.items, "Create", new CreateMenuItem(this))
         );
         this.items.add(new MenuItem(this.items, "Search", new SearchMenuItem()));
         this.items.add(new MenuItem(this.items, "Delete", new DeleteMenuItem()));
         this.items.add(new MenuItem(this.items, "Search by name", new SearchByNameMenuItem()));
+        this.items.add(new MenuItem(this.items, "Search file", new CreateMenuFile(this)));
     }
 
     @Override
