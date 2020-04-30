@@ -18,7 +18,7 @@ public class CreateMenuFile implements MenuItemExecutor {
         System.out.println("Укажите путь к файлу:");
         Scanner scanner = new Scanner(System.in);
         String contactFile = scanner.nextLine();
-
+        int lineCount=0;
         try {
             File file = new File(contactFile);
             //создаем объект FileReader для объекта File
@@ -28,17 +28,17 @@ public class CreateMenuFile implements MenuItemExecutor {
             // считаем сначала первую строку
             String line = reader.readLine();
 
-            int lineCount=0;
+            Contact contact = null;
+            CreateMenuItem createMenuItem = new CreateMenuItem(MENU);
+            FileWriter nFile = new FileWriter("//C:/prj/test2.txt");
             while (line != null) {
                 // считываем остальные строки в цикле
                  lineCount++;
-
-                Contact contact = null;
-
                 try {
-                    CreateMenuItem createMenuItem = new CreateMenuItem(MENU);
                     contact=createMenuItem.parseContactLine(line);
                     ContactStorage.INSTANCE.getContacts().add(contact);
+
+
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
                     System.err.println("Ошибка в строке № "+lineCount);
@@ -49,12 +49,21 @@ public class CreateMenuFile implements MenuItemExecutor {
                 line = reader.readLine();
 
             }
+            for (Contact cont:ContactStorage.INSTANCE.getContacts()
+                 ) {nFile.write(cont.toString());
+
+            }
+            nFile.close();
+
             //System.out.println(contactLine);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+
         }
+
+
 
 
 
