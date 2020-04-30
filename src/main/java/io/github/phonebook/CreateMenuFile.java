@@ -50,7 +50,7 @@ public class CreateMenuFile implements MenuItemExecutor {
 
             }
             for (Contact cont:ContactStorage.INSTANCE.getContacts()
-                 ) {nFile.write(cont.toString());
+                 ) {nFile.write(cont.toString()+"\n");
 
             }
             nFile.close();
