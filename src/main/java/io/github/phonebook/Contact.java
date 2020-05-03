@@ -1,13 +1,14 @@
 package io.github.phonebook;
 
 import java.util.Date;
+import java.util.Objects;
 
-public class Contact {
-    private final String fullName;
-    private final Date dob;
-    private final Integer countOfProjects;
-    private final Float rating;
-    private final String comments;
+public class Contact implements Comparable {
+    private String fullName;
+    private Date dob;
+    private Integer countOfProjects;
+    private Float rating;
+    private String comments;
 
 
     public Contact(String fullName, Date dob, Integer countOfProjects, Float rating, String comments) {
@@ -18,6 +19,15 @@ public class Contact {
         this.comments = comments;
     }
 
+    public Contact(String fullName) {
+        this.fullName = fullName;
+
+        this.dob = null;
+        this.countOfProjects = 0;
+        this.rating = (float) 0;
+        this.comments = null;
+    }
+
     public String getFullName() {
         return fullName;
     }
@@ -25,9 +35,6 @@ public class Contact {
     public String getComments() {
         return comments;
     }
-    //TODO: тут вы должны создать конструктор который конвертирует строковые значения полученые в ходе разбора входных данных.
-//Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
-//Необходимо распарсить String в соотвествующие типы
 
     @Override
     public String toString() {
@@ -38,5 +45,33 @@ public class Contact {
                 ", rating=" + rating +
                 ", comments='" + comments + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Contact secondContact = (Contact) o;
+        if (this.fullName.contains(secondContact.getFullName())) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (this.hashCode() == o.hashCode()) return true;
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getFullName() != null ? getFullName().hashCode() : 0;
+        result = 31 * result + (dob != null ? dob.hashCode() : 0);
+        result = 31 * result + (countOfProjects != null ? countOfProjects.hashCode() : 0);
+        result = 31 * result + (rating != null ? rating.hashCode() : 0);
+        result = 31 * result + (getComments() != null ? getComments().hashCode() : 0);
+        return result;
     }
 }

@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.Scanner;
 
 public class CreateMenuFile implements MenuItemExecutor {
-//C:/prj/test.txt
-
 
     private final Menu MENU;
 
@@ -18,7 +16,8 @@ public class CreateMenuFile implements MenuItemExecutor {
         System.out.println("Укажите путь к файлу:");
         Scanner scanner = new Scanner(System.in);
         String contactFile = scanner.nextLine();
-        int lineCount=0;
+        int lineCount = 0;
+        FileWriter outContactFile = null;
         try {
             File file = new File(contactFile);
             //создаем объект FileReader для объекта File
@@ -27,45 +26,43 @@ public class CreateMenuFile implements MenuItemExecutor {
             BufferedReader reader = new BufferedReader(fr);
             // считаем сначала первую строку
             String line = reader.readLine();
-
             Contact contact = null;
             CreateMenuItem createMenuItem = new CreateMenuItem(MENU);
-            FileWriter nFile = new FileWriter("//C:/prj/test2.txt");
+            outContactFile = new FileWriter("out.txt");
             while (line != null) {
                 // считываем остальные строки в цикле
-                 lineCount++;
+                lineCount++;
                 try {
-                    contact=createMenuItem.parseContactLine(line);
+                    contact = createMenuItem.parseContactLine(line);
                     ContactStorage.INSTANCE.getContacts().add(contact);
-
-
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
-                    System.err.println("Ошибка в строке № "+lineCount);
+                    System.err.println("Ошибка в строке № " + lineCount);
                 }
-
-
-
                 line = reader.readLine();
-
             }
-            for (Contact cont:ContactStorage.INSTANCE.getContacts()
-                 ) {nFile.write(cont.toString()+"\n");
-
+            for (Contact cont : ContactStorage.INSTANCE.getContacts()) {
+                outContactFile.write(cont.toString() + "\n");
             }
-            nFile.close();
-
-            //System.out.println(contactLine);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-
+        } finally {
+            try {
+                if (outContactFile != null) {
+                    outContactFile.close();
+                }
+            } catch (IOException e) {
+                System.err.println("File problem " + e.getMessage());
+            }
         }
 
+        try (
+                FileWriter outContactFileX = new FileWriter("out.txt");
+                ) {
+                outContactFileX.write("2");
+        } catch (IOException e) {
 
-
-
+        }
 
         MENU.printMenu();
         MENU.interactWithMenu();
