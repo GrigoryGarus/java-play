@@ -1,15 +1,3 @@
 io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
-io.github.phonebook.Contact{fullName='Иванов Иван Иванович', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
+io.github.phonebook.Contact{fullName='Иванов Иван Иванович333333', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}
+io.github.phonebook.Contact{fullName='Иванов Иван Иванович444444', dob=Sat Jun 18 00:00:00 MSD 1983, countOfProjects=34, rating=6.45, comments='[ "Работал над проектами: ""АБС"",  ""КВД"""]'}

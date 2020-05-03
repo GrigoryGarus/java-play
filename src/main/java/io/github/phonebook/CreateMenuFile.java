@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class CreateMenuFile implements MenuItemExecutor {
-
+//C:/prj/test.txt
     private final Menu MENU;
 
     public CreateMenuFile(Menu menu) {
@@ -17,18 +17,18 @@ public class CreateMenuFile implements MenuItemExecutor {
         Scanner scanner = new Scanner(System.in);
         String contactFile = scanner.nextLine();
         int lineCount = 0;
-        FileWriter outContactFile = null;
-        try {
-            File file = new File(contactFile);
+        File file = new File(contactFile);
+        try ( FileReader fr = new FileReader(file);
+              BufferedReader reader = new BufferedReader(fr);
+              FileWriter outContactFile = new FileWriter("out.txt")) {
+
             //создаем объект FileReader для объекта File
-            FileReader fr = new FileReader(file);
             //создаем BufferedReader с существующего FileReader для построчного считывания
-            BufferedReader reader = new BufferedReader(fr);
             // считаем сначала первую строку
             String line = reader.readLine();
             Contact contact = null;
             CreateMenuItem createMenuItem = new CreateMenuItem(MENU);
-            outContactFile = new FileWriter("out.txt");
+
             while (line != null) {
                 // считываем остальные строки в цикле
                 lineCount++;
@@ -46,22 +46,6 @@ public class CreateMenuFile implements MenuItemExecutor {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (outContactFile != null) {
-                    outContactFile.close();
-                }
-            } catch (IOException e) {
-                System.err.println("File problem " + e.getMessage());
-            }
-        }
-
-        try (
-                FileWriter outContactFileX = new FileWriter("out.txt");
-                ) {
-                outContactFileX.write("2");
-        } catch (IOException e) {
-
         }
 
         MENU.printMenu();
