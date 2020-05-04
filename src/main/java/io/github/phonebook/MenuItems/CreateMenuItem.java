@@ -1,4 +1,4 @@
-package io.github.phonebook;
+package io.github.phonebook.MenuItems;
 
 //TODO: Данный класс должен отвечать за обработку ввходных данных в формате -
 //Иванов Иван Иванович; 18.06.1983; 34; 6.45; \"Работал над проектами: \"\"АБС\"\"; \"\"КВД\"\"\"
@@ -6,6 +6,11 @@ package io.github.phonebook;
 //Петров Петр Васильевич; 18.06.1983; 34; 6,45; "Работал над проектами: ""АБС""; ""КВД"""
 //Авакян Арен Васильевич; 18.06.1983; 34; 6,45; "Работал над проектами: ""АБС""; ""КВД"""
 
+
+import io.github.phonebook.Contact;
+import io.github.phonebook.ContactStorage;
+import io.github.phonebook.Menu;
+import io.github.phonebook.MenuItemExecutor;
 
 import java.io.IOException;
 import java.text.ParseException;

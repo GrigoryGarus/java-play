@@ -1,4 +1,9 @@
-package io.github.phonebook;
+package io.github.phonebook.MenuItems;
+
+import io.github.phonebook.ContactStorage;
+import io.github.phonebook.MainMenu;
+import io.github.phonebook.Menu;
+import io.github.phonebook.MenuItemExecutor;
 
 import java.util.Scanner;
 

@@ -1,6 +1,7 @@
 package io.github.phonebook;
 
 import io.github.phonebook.DataBase.WorkWithDB;
+import io.github.phonebook.MenuItems.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
