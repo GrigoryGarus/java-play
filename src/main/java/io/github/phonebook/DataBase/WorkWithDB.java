@@ -1,4 +1,6 @@
-package io.github.phonebook;
+package io.github.phonebook.DataBase;
+
+import io.github.phonebook.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,8 +14,8 @@ public class WorkWithDB extends AbstractMenu implements MenuItemExecutor {
     private void initMenuItems() {
         this.items.add(new MenuItem(this.items, "Create", new CreateMenuDB()));
         this.items.add(new MenuItem(this.items, "Search", new SearchDB()));
-        this.items.add(new MenuItem(this.items, "Update", new DeleteMenuItem()));
-        this.items.add(new MenuItem(this.items, "Delete", new SearchByNameMenuItem()));
+        this.items.add(new MenuItem(this.items, "Update", new UpdateDB()));
+        this.items.add(new MenuItem(this.items, "Delete", new DeleteDB()));
     }
 
     @Override
