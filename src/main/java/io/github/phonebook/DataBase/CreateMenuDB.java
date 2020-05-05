@@ -9,41 +9,39 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class CreateMenuDB implements MenuItemExecutor {
-    @Override
-    public void execute() {
-
+    String contactFIO;
+    String contactDATE;
+    String contactCoP;
+    String contactRating;
+    String contactComment;
+    public void inputContact() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ФИО");
-        String contactFIO = scanner.nextLine();
+        contactFIO = scanner.nextLine();
         System.out.println("Введите дату рождения YYYY-MM-DD");
-        String contactDATE = scanner.nextLine();
+        contactDATE = scanner.nextLine();
         System.out.println("Введите количество проектов");
-        String contactCoP = scanner.nextLine();
+         contactCoP = scanner.nextLine();
         System.out.println("Введите рейтинг");
-        String contactRating = scanner.nextLine();
+         contactRating = scanner.nextLine();
         System.out.println("Введите комментарий");
-        String contactComment = scanner.nextLine();
+        contactComment = scanner.nextLine();
+    }
 
-
-
-
-
+    @Override
+    public void execute() {
+        inputContact();
 
         Connection conn = null;
         Statement stmt = null;
         try {
-            // STEP 1: Register JDBC driver
-            Class.forName("org.h2.Driver");
-
-            //STEP 2: Open a connection
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost:9092/data",
-                    "sa","");
-
+            conn = ConnectionPool.INSTANCE.getConn();
             //STEP 3: Execute a query
             System.out.println("Creating in given database...");
             stmt = conn.createStatement();
             String sql =  "INSERT INTO Contacts VALUES('"+contactFIO+"', '"+contactDATE+"', "+contactCoP+", "+contactRating+",'"+contactComment+"')";
+
+
             stmt.executeUpdate(sql);
             System.out.println("Created in given database...");
 
@@ -70,4 +68,6 @@ public class CreateMenuDB implements MenuItemExecutor {
         } //end try
         System.out.println("Goodbye!");
     }
+
+
 }

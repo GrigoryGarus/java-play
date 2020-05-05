@@ -1,7 +1,10 @@
 package io.github.phonebook.DataBase;
 
 import io.github.phonebook.*;
+import org.h2.jdbcx.JdbcConnectionPool;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -33,9 +36,12 @@ public class WorkWithDB extends AbstractMenu implements MenuItemExecutor {
         }
     }
 
+
     @Override
     public void execute() {
         printMenu();
         interactWithMenu();
+
+
     }
 }

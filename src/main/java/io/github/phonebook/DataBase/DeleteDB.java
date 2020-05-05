@@ -16,13 +16,8 @@ public class DeleteDB implements MenuItemExecutor {
         Connection conn = null;
         Statement stmt = null;
         try {
-            // STEP 1: Register JDBC driver
-            Class.forName("org.h2.Driver");
+            conn = ConnectionPool.INSTANCE.getConn();
 
-            //STEP 2: Open a connection
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost:9092/data",
-                    "sa","");
 
             //STEP 3: Execute a query
             stmt = conn.createStatement();
